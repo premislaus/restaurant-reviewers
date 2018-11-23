@@ -1,0 +1,58 @@
+<% include _header %>
+
+<main role="main">
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+                <div class="px-0">
+                    <h1 class="display-4 font-italic"><%= restaurant.name %></h1>
+                    <p class="lead my-3"><%= restaurant.neighborhood %></p>
+                    <p class="lead my-3"><%= restaurant.address %></p>
+                    <p class="lead mb-0"><a href="#" class="text-white font-weight-bold"><%= restaurant.operating_hours.Thursday %></a></p>
+                </div>
+            </div>
+
+            <div class="p-md-5">
+                <h3 class="pb-3 mb-4 font-italic border-bottom">Reviews</h3>
+
+
+                <% restaurant.reviews.forEach(function (review) { %>
+                <div class="blog-post">
+                <h2 class="blog-post-title"><%= review.rating %>/10</h2>
+                <p class="blog-post-meta"><%= review.date %> by <a href="/users/<%= review.username %>"><%= review.name %></a></p>
+
+                <p><%= review.comments %></p>
+                </div>
+                <% }) %>
+
+                <nav class="blog-pagination mt-5">
+                    <h4 class="mb-3">Write a Review</h4>
+                    <a href="/add">Add Review</a>
+                    <% if (currentUser) { %>
+                        <!--<h4 class="mb-3">Write a Review</h4>-->
+                        <!--<a href="/add">Add Review</a>-->
+                    <!--<form action="/add" method="post">-->
+                        <!--<div class="col-md-12 mb-3">-->
+                            <!--<div class="mb-3">-->
+                                <!--<input type="text" class="form-control" id="firstName" name="review" placeholder="Help other foodies by sharing your review of <%= restaurant.name %>" value="" required="">-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+                        <!--<button class="btn btn-primary btn-lg btn-block" type="submit">Add Your Review</button>-->
+                    <!--</form>-->
+                    <% } else { %>
+                    just no
+                    <% } %>
+                </nav>
+
+            </div>
+
+
+        </div>
+    </div>
+
+</main>
+
+<% include _footer %>

@@ -1,0 +1,23 @@
+<% include _header %>
+
+<form class="form-signin" action="/edit" method="post">
+    <h1 class="h3 mb-3 font-weight-normal">Your account</h1>
+    <label for="inputEmail" class="sr-only">Username</label>
+    <input name="username" type="text" value="<%= currentUser.username %>" class="form-control" placeholder="Username" required autofocus>
+    <label for="inputPassword" class="sr-only">Bio</label>
+    <textarea name="bio" class="form-control" placeholder="Tell us about yourself!"><%= currentUser.bio || "" %></textarea>
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" value="remember-me"> Remember me
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+</form>
+
+<!--<form action="/edit" method="post">-->
+    <!--<input name="displayName" type="text" class="form-control" placeholder="Display name" value="<%= currentUser.displayName || "" %>">-->
+    <!--<textarea name="bio" class="form-control" placeholder="Tell us about yourself!"><%= currentUser.bio || "" %></textarea>-->
+    <!--<input type="submit" value="Update" class="btn btn-primary btn-block">-->
+<!--</form>-->
+
+<% include _footer %>
