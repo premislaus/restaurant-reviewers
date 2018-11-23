@@ -9,10 +9,6 @@ var flash = require("connect-flash");
 
 var setUpPassport = require("./setuppassport");
 var routes = require("./routes");
-// var indexRoute = require("./routes/index");
-// var restaurantRoute = require("./routes/restaurants");
-// var userRoute = require("./routes/users");
-// var reviewRoute = require("./routes/reviews");
 
 var app = express();
 mongoose.Promise = global.Promise;
@@ -39,39 +35,7 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-// app.use("/", indexRoute);
-// app.use("/restaurants", restaurantRoute);
-// app.use("/users", userRoute);
 app.use(routes);
-
-// app.post("/add", function (req, res, next) {
-//     // var book = new Restaurant(req.body);
-//     // book.save();
-//     res.status(201).send("done");
-//
-// });
-
-// app.post('/add', function(req, res) {
-//
-//     var lat = req.body.lat;
-//     var lng = req.body.lng;
-//
-//     // function writeUserData(angle, id, latitude, longitude) {
-//     //     firebaseAdmin.database().ref('/Cars').push({
-//     //         angle: angle,
-//     //         id: id,
-//     //         lat: latitude,
-//     //         lng: longitude
-//     //     });
-//     // }
-//     //
-//     // writeUserData(angle, id, lat, lng);
-//
-//     res.status(200).send("Congratulations!" + lat);
-//     // var data = [angle, id, lat, lng];
-//     // res.status(200).send(data);
-// });
-
 
 app.listen(app.get("port"), function () {
    console.log("Server started on port " + app.get("port"));
